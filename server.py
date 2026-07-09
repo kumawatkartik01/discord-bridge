@@ -15,6 +15,17 @@ except Exception as e:
     RPC = None
 
 class WebhookHandler(BaseHTTPRequestHandler):
+    # Render sends a HEAD or GET request to check if the server is healthy
+    def do_HEAD(self):
+        self.send_response(200)
+        self.end_headers()
+        
+    def do_GET(self):
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(b"Discord Bridge is alive and listening!")
+
+    # This handles the actual music data from your phone
     def do_POST(self):
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length)
