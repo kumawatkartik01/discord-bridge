@@ -3,11 +3,11 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from pypresence import Presence
 
 # 1. Replace with your Discord Application ID from the Developer Portal
-CLIENT_ID = "152464373412843122"
+CLIENT_ID = "1524643734128431224"
 
 print("Initializing Discord Rich Presence...")
 try:
-    RPC = Presence(152464373412843122)
+    RPC = Presence(CLIENT_ID)
     RPC.connect()
     print("Successfully connected to Discord Gateway!")
 except Exception as e:
